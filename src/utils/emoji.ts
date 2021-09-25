@@ -919,12 +919,11 @@ export const getRandomEmoji = () => {
 };
 
 export const getEmojiSet = () => {
-  return `${getRandomEmoji()}${getRandomEmoji()}${getRandomEmoji()}`;
+  return [getRandomEmoji(), getRandomEmoji(), getRandomEmoji()];
 };
 
-export const generateRandomEmojiSpot = (emojis: string) => {
-  const options = [...emojis];
-  const emoji = options[randomInteger(0, options.length - 1)];
+export const generateRandomEmojiSpot = (emojis: string[]) => {
+  const emoji = emojis[randomInteger(0, emojis.length - 1)];
 
   const size = Math.random() * 450 + 12;
 
@@ -939,6 +938,6 @@ export const generateRandomEmojiSpot = (emojis: string) => {
   };
 };
 
-export const fillRandomEmojis = (emojis: string) => {
+export const fillRandomEmojis = (emojis: string[]) => {
   return new Array(25).fill(null).map(() => generateRandomEmojiSpot(emojis));
 };

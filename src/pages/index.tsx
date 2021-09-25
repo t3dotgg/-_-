@@ -2,8 +2,8 @@ import React from "react";
 import Head from "next/head";
 import { fillRandomEmojis, getEmojiSet } from "../utils/emoji";
 
-export const ʘ_ʘ: React.FC<{ emojis: string }> = (props) => {
-  return <div className="text-8xl">{props.emojis}</div>;
+export const ʘ_ʘ: React.FC<{ emojis: string[] }> = (props) => {
+  return <div className="text-8xl">{props.emojis.join("")}</div>;
 };
 
 export default function ಠ_ಠ() {

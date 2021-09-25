@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { fillRandomEmojis, getEmojiSet } from "../utils/emoji";
+import { usePlausible } from "next-plausible";
 
 export const ʘ_ʘ: React.FC<{ emojis: string[] }> = (props) => {
   return <div className="text-8xl">{props.emojis.join("")}</div>;
@@ -9,6 +10,8 @@ export const ʘ_ʘ: React.FC<{ emojis: string[] }> = (props) => {
 export default function ಠ_ಠ() {
   const [emojis, setEmojis] = React.useState(getEmojiSet());
   const fill = React.useMemo(() => fillRandomEmojis(emojis), [emojis]);
+  const plausible = usePlausible();
+
   return (
     <div className="flex h-screen w-screen items-center justify-center overflow-hidden relative">
       <div className="absolute top-0 h-screen w-screen overflow-x-scroll ಠ_ಠ inline-block whitespace-nowrap opacity-20 z-0 select-none">
@@ -40,7 +43,10 @@ export default function ಠ_ಠ() {
         <ʘ_ʘ emojis={emojis} />
         <button
           className="bg-gray-500 bg-opacity-40 hover:bg-opacity-60 transition p-2 m-5 text-2xl rounded-xl"
-          onClick={() => setEmojis(getEmojiSet())}
+          onClick={() => {
+            plausible("emoji-randomize");
+            setEmojis(getEmojiSet());
+          }}
         >
           {"🎲"}
         </button>

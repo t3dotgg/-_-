@@ -925,19 +925,19 @@ export const getEmojiSet = () => {
 export const generateRandomEmojiSpot = (emojis: string[]) => {
   const emoji = emojis[randomInteger(0, emojis.length - 1)];
 
-  const size = Math.random() * 450 + 12;
+  const size = Math.floor(Math.random() * 450 + 12);
 
   return {
     emoji,
     size,
     z: 500 - size,
-    x: Math.random() * 110 - 10,
-    y: Math.random() * 110 - 10,
+    x: Math.floor(Math.random() * 110 - 10),
+    y: Math.floor(Math.random() * 110 - 10),
 
     time: (Math.random() * 5 + 3).toFixed(0),
   };
 };
 
 export const fillRandomEmojis = (emojis: string[]) => {
-  return new Array(25).fill(null).map(() => generateRandomEmojiSpot(emojis));
+  return new Array(50).fill(null).map(() => generateRandomEmojiSpot(emojis));
 };

@@ -14,7 +14,7 @@ body {
 }
 
 body {
-  @apply bg-gray-800 text-gray-200;
+  @apply bg-black text-gray-200;
 }
 
 a {

@@ -921,3 +921,24 @@ export const getRandomEmoji = () => {
 export const getEmojiSet = () => {
   return `${getRandomEmoji()}${getRandomEmoji()}${getRandomEmoji()}`;
 };
+
+export const generateRandomEmojiSpot = (emojis: string) => {
+  const options = [...emojis];
+  const emoji = options[randomInteger(0, options.length - 1)];
+
+  const size = Math.random() * 450 + 12;
+
+  return {
+    emoji,
+    size,
+    z: 500 - size,
+    x: Math.random() * 110 - 10,
+    y: Math.random() * 110 - 10,
+
+    time: (Math.random() * 5 + 3).toFixed(0),
+  };
+};
+
+export const fillRandomEmojis = (emojis: string) => {
+  return new Array(25).fill(null).map(() => generateRandomEmojiSpot(emojis));
+};

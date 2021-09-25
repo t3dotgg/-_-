@@ -33,3 +33,23 @@ a {
 .link-dark {
   @apply text-blue-300 no-underline hover:underline hover:text-blue-500;
 }
+
+.ಠ_ಠ {
+  font-size: 33vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.rotate-emoji {
+  transform-origin: 0% 0%;
+  animation: emote-flipper infinite 3s linear;
+}
+
+@keyframes emote-flipper {
+  0% {
+    transform: rotate(0) translate3D(-50%, -50%, 0);
+  }
+  100% {
+    transform: rotate(360deg) translate3D(-50%, -50%, 0);
+  }
+}
